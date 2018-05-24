@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class onTimeForExam {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int examHour = Integer.parseInt(input.nextLine());
+        int examMinutes = Integer.parseInt(input.nextLine());
+        int arriveHour = Integer.parseInt(input.nextLine());
+        int arriveMinutes = Integer.parseInt(input.nextLine());
+        int examTotalMin = examHour * 60 + examMinutes;
+        int arriveTotalMin = arriveHour * 60 + arriveMinutes;
+        int commingTime = examTotalMin- arriveTotalMin;
+        if (commingTime < 0){
+            commingTime = Math.abs(commingTime);
+            int commingHours = commingTime / 60;
+            int commingMinutes = commingTime % 60;
+            if(commingHours == 0){
+                    System.out.println("Late");
+                    System.out.printf("%d minutes after the start", commingMinutes);
+            }else{
+                if (commingMinutes < 10) {
+                    System.out.println("Late");
+                    System.out.printf("%d:0%d hours after the start", commingHours, commingMinutes);
+                }else{
+                    System.out.println("Late");
+                    System.out.printf("%d:%d hours after the start", commingHours, commingMinutes);
+                }
+            }
+        }else if(commingTime >= 0 && commingTime <= 30){
+            int commingMinutes = commingTime % 60;
+                System.out.println("On time");
+                System.out.printf("%d minutes before the start", commingMinutes);
+        }else{
+            int commingHours = commingTime / 60;
+            int commingMinutes = commingTime % 60;
+            if(commingHours == 0){
+                if (commingMinutes < 10) {
+                    System.out.println("Early");
+                    System.out.printf("0%d minutes before the start", commingMinutes);
+                }else{
+                    System.out.println("Early");
+                    System.out.printf("%d minutes before the start", commingMinutes);
+                }
+            }else{
+                if (commingMinutes < 10) {
+                    System.out.println("Early");
+                    System.out.printf("%d:0%d hours before the start", commingHours, commingMinutes);
+                }else{
+                    System.out.println("Early");
+                    System.out.printf("%d:%d hours before the start", commingHours, commingMinutes);
+                }
+            }
+        }
+
+    }
+}
