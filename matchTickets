@@ -1,0 +1,35 @@
+import java.io.DataOutput;
+        import java.util.Scanner;
+
+public class matchTickets {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        double budget = Double.parseDouble(input.nextLine());
+        String type = input.nextLine();
+        int num = Integer.parseInt(input.nextLine());
+        double tickets = 0;
+        if (num <= 4){
+            budget = 0.25 * budget;
+        }else if (num <= 9){
+            budget = 0.4 * budget;
+        }else if (num <= 24){
+            budget   = 0.5 * budget;
+        }else if (num <= 49){
+            budget   = 0.6 * budget;
+        }else {
+            budget   = 0.75 * budget;
+        }
+        if (type.equals("VIP")){
+            tickets = num * 499.99;
+        }else if (type.equals("Normal")){
+            tickets = num * 249.99;
+        }
+        if (budget - tickets >= 0){
+            double result = budget - tickets;
+            System.out.printf("Yes! You have %.2f leva left.",result);
+        }else{
+            double result = tickets - budget;
+            System.out.printf("Not enough money! You need %.2f leva.", result);
+        }
+    }
+}
