@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class volleyball {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String yearType = input.nextLine();
+        double holliday = Integer.parseInt(input.nextLine());
+        double travel = Double.parseDouble(input.nextLine());
+        double saturdayGames = (48 - travel) * 3/4;
+        double hollidayGames = holliday * 2/3;
+        double games = saturdayGames + hollidayGames + travel;
+        if (yearType.equals("leap")){
+            games = games + 0.15*games;
+        }
+        System.out.println(Math.floor(games));
+    }
+}
