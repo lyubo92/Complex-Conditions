@@ -1,0 +1,20 @@
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
+public class cinema {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String projection = input.nextLine();
+        int rows = Integer.parseInt(input.nextLine());
+        int columns = Integer.parseInt(input.nextLine());
+        double price = 0;
+        double  result = 0;
+        switch (projection){
+            case "Premiere" : price = 12; break;
+            case "Normal" : price = 7.5; break;
+            case "Discount" : price = 5; break;
+        }
+        result = price * rows * columns;
+        System.out.printf("%.2f leva", result);
+    }
+}
