@@ -1,0 +1,12 @@
+import java.util.Scanner;
+
+public class invalidNumber {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        double num = Double.parseDouble(input.nextLine());
+        if ((num >= 100 && num <= 200) || num == 0){
+        }else{
+            System.out.println("invalid");
+        }
+    }
+}
